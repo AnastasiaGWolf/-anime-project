@@ -1,4 +1,3 @@
-// console.log('connection check');
 const { registration } = document.forms;
 const message = document.querySelector('.regMsg');
 
@@ -19,7 +18,7 @@ registration.addEventListener('submit', async (e) => {
       message.innerHTML = `${result.msgDone}`;
       setTimeout(() => {
         window.location.href = '/';
-      }, 300);
+      }, 400);
     }
 
     if (result.msgErr) {
@@ -29,5 +28,3 @@ registration.addEventListener('submit', async (e) => {
     console.log(`Ошибка при регистрации: ${error}`);
   }
 });
-
-// console.log(registration);
