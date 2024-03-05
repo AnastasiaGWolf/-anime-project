@@ -13,6 +13,14 @@ module.exports = {
         unique: true,
         type: Sequelize.INTEGER,
       },
+      title: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
+      picture: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

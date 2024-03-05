@@ -12,6 +12,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   Anime.init({
     external_key: DataTypes.INTEGER,
+    title: DataTypes.STRING,
+    picture: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Anime',
