@@ -6,7 +6,7 @@ function Home({ login, cards }) {
     <Layout login={login}>
       <div className="cardsContainer">
         {cards?.map((card) => (
-          <div className="card">
+          <div key={card.id} className="card">
             <img src={card.picture} className="picture" alt="..." />
             <div className="body">
               <h4>{card.title}</h4>
