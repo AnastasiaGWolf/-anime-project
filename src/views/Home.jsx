@@ -7,7 +7,7 @@ function Home({ login, cards }) {
       <div className="cardsContainer">
         {cards?.map((card) => (
           <div className="card">
-            <img src={card.picture} className="card-img-top" alt="..." />
+            <img src={card.picture} className="picture" alt="..." />
             <div className="body">
               <h4>{card.title}</h4>
             </div>

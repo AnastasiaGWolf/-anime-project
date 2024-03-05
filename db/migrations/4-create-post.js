@@ -11,6 +11,7 @@ module.exports = {
       author: {
         allowNull: false,
         type: Sequelize.INTEGER,
+        onDelete: 'cascade',
         references: {
           model: 'Users',
           key: 'id',
@@ -26,6 +27,7 @@ module.exports = {
       },
       anime: {
         type: Sequelize.INTEGER,
+        onDelete: 'cascade',
         references: {
           model: 'Animes',
           key: 'id',

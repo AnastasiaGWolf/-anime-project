@@ -16,7 +16,7 @@ function Navbar({ login }) {
               <a className="nav-link" href="/login">
                 Личный кабинет
               </a>
-              <a className="nav-link" href="/reg">
+              <a className="nav-link" href="/logout">
                 Выйти
               </a>
             </div>
@@ -34,7 +34,7 @@ function Navbar({ login }) {
               <a className="nav-link" href="/login">
                 Войти
               </a>
-              <a className="nav-link" href="/reg">
+              <a className="nav-link" href="/registration">
                 Зарегистрироваться
               </a>
             </div>

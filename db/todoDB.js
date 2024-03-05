@@ -5,3 +5,7 @@
 // * npx sequelize-cli model:generate --name Discussion --attributes user_id:integer,anime_id:integer,body:text
 // * npx sequelize-cli model:generate --name Favorites --attributes user_id:integer,anime_id:integer
 // * npx sequelize-cli model:generate --name Anime --attributes external_key:integer
+
+//! Seeds
+
+// * npx sequelize-cli seed:generate --name AnimesSeed
