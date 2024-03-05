@@ -13,7 +13,7 @@ function Navbar({ login }) {
           </div>
           <div className="collapse navbar-collapse">
             <div className="navbar-nav">
-              <a className="nav-link" href="/login">
+              <a className="nav-link" href="/lk">
                 Личный кабинет
               </a>
               <a className="nav-link" href="/logout">
