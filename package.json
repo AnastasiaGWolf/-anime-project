@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
-    "dev": "nodemon app.js --ext js,jsx --ignore sessions",
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js --ext js,jsx --ignore sessions",
     "createDB": "npx sequelize db:create",
     "mig": "npx sequelize db:migrate:undo:all && npx sequelize db:migrate",
     "seed": "npx sequelize db:seed:all",
