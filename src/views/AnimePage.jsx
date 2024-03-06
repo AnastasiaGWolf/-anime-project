@@ -20,9 +20,9 @@ function AnimePage({ login, anime }) {
       </div>
 
       <div className="buttons">
-        <button id="addFavor" type="button">Добавить в избранное</button>
-        <button id="" type="button">Посмотреть статьи про аниме</button>
-        <button type="button">Написать интересную статью</button>
+        <button id="addFavor" type="button" data-animeid={anime.id}>Добавить в избранное</button>
+        <button id="allPosts" type="button" data-animeid={anime.id}>Посмотреть статьи про аниме</button>
+        <button id="createPost" type="button">Написать интересную статью</button>
       </div>
 
       <div className="chat">
@@ -32,6 +32,7 @@ function AnimePage({ login, anime }) {
         </form>
         Чат. Здесь будут все данные из таблицы Discussions
       </div>
+      <script defer src="/js/anime.js" />
     </Layout>
   );
 }

@@ -82,9 +82,16 @@ userRouter.put('/update', async (req, res) => {
     const userUpdate = await User.update({
       name, email,
     }, { where: { id: userId } });
-    // userUpdate.set({ name, email });
-    // await userUpdate.save();
-    res.json(userUpdate);
+
+    if (userUpdate) {
+      const user = await User.findByPk(userId);
+      req.session.login = user.name;
+      req.session.userId = user.id;
+      req.session.save(() => {
+        console.log('Сессия сохранена');
+        res.json(user);
+      });
+    }
   } catch (error) {
     res.status(500);
   }

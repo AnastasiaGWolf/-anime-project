@@ -5,6 +5,7 @@ const Account = require('../views/Account');
 const ErrorPage = require('../views/ErrorPage');
 const Home = require('../views/Home');
 const Login = require('../views/Login');
+const PostPage = require('../views/PostPage');
 const Posts = require('../views/Posts');
 const Registration = require('../views/Registration');
 const {
@@ -60,11 +61,15 @@ indexRouter.get('/posts', async (req, res) => {
         attributes: ['name'],
       }],
     });
-    console.log(allPosts);
     renderTemplate(Posts, { login, userId, posts: allPosts }, res);
   } catch (error) {
     res.status(500).redirect('/404');
   }
+});
+
+indexRouter.get('/article', (req, res) => {
+  const { login } = req.session;
+  renderTemplate(PostPage, { login, article: '' }, res);
 });
 
 indexRouter.get('/404', (req, res) => {

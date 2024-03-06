@@ -21,10 +21,12 @@ function Account({
       <div className="cardsContainer">
         {favorites?.map((card) => (
           <div key={card.id} className="card">
-            <img src={card.Anime.picture} className="picture" alt="..." />
-            <div className="body">
-              <h4>{card.Anime.title}</h4>
-            </div>
+            <a href={`/anime/${card.id}`}>
+              <img src={card.Anime.picture} className="picture" alt="..." />
+              <div className="body">
+                <h4>{card.Anime.title}</h4>
+              </div>
+            </a>
             <button className="btnDltCard" type="button">Удалить из избранного</button>
           </div>
         ))}
