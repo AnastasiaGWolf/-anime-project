@@ -19,7 +19,7 @@ function Navbar({ login }) {
               <a className="nav-link" href="/account">
                 Личный кабинет
               </a>
-              <a className="nav-link" href="/logout">
+              <a className="nav-link" href="/users/logout">
                 Выйти
               </a>
             </div>

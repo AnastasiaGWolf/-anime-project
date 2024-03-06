@@ -6,10 +6,12 @@ const logger = require('morgan');
 const path = require('path');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
-const apiRouter = require('./routes/api.router');
+const cors = require('cors');
 
 const app = express();
 const { PORT, SESSION_SECRET } = process.env;
+
+const apiRouter = require('./routes/api.router');
 
 const sessionConfig = {
   name: 'cookieName',
@@ -23,13 +25,16 @@ const sessionConfig = {
   },
 };
 
-// * Cookies
-app.use(session(sessionConfig));
+const corsConfig = {
+  origin: [],
+  credentials: true,
+}
 
-// * Middleware
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(session(sessionConfig));
+app.use(cors(corsConfig));
 app.use(express.static(path.join(process.cwd(), 'public')));
 
 app.use('/', apiRouter);

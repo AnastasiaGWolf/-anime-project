@@ -7,7 +7,7 @@ registration.addEventListener('submit', async (e) => {
   const inputs = Object.fromEntries(data);
 
   try {
-    const response = await fetch('/registration', {
+    const response = await fetch('/users/registration', {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify(inputs),

@@ -7,7 +7,7 @@ login.addEventListener('submit', async (e) => {
   const inputs = Object.fromEntries(data);
 
   try {
-    const response = await fetch('/login', {
+    const response = await fetch('/users/login', {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify(inputs),

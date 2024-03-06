@@ -1,31 +1,67 @@
 const userRouter = require('express').Router();
-const { where } = require('sequelize');
-const Account = require('../views/Account');
+const bcrypt = require('bcrypt');
+const { Op } = require('sequelize');
 const {
   User, Favorites, Post, Anime,
 } = require('../../db/models');
 const renderTemplate = require('../utils/renderTemplate');
 
-userRouter.get('/', async (req, res) => {
-  const { login, userId } = req.session;
+userRouter.post('/registration', async (req, res) => {
   try {
-    const user = await User.findByPk(userId);
-
-    const favorites = await Favorites.findAll({
-      include: [{
-        model: Anime,
-        attributes: ['title', 'picture'],
-      }],
-      where: { user_id: userId },
+    const { name, email, password } = req.body;
+    const user = await User.findOne({
+      where: {
+        [Op.or]: [
+          { name },
+          { email },
+        ],
+      },
     });
 
-    const posts = await Post.findAll({ where: { author: userId } });
-    renderTemplate(Account, {
-      login, user, favorites, posts,
-    }, res);
+    if (user) {
+      res.json({ msgErr: 'Пользователь с указанным именем или почтой уже существует' });
+    } else {
+      const hashPassword = await bcrypt.hash(password, 12);
+      const newUser = await User.create({ name, email, password: hashPassword });
+      req.session.login = newUser.name;
+      req.session.userId = newUser.id;
+      req.session.save(() => {
+        res.json({ msgDone: 'Пользователь успешно зарегистрирован' });
+      });
+    }
   } catch (error) {
-    res.status(500);
+    res.json(error);
   }
+});
+
+userRouter.post('/login', async (req, res) => {
+  try {
+    const { name, password } = req.body;
+    const user = await User.findOne({ where: { name } });
+    if (!user) {
+      res.json({ logErr: 'Пользователь не найден \nБудь внимателен к регистру' });
+    } else {
+      const checkPass = await bcrypt.compare(password, user.password);
+      if (checkPass) {
+        req.session.login = user.name;
+        req.session.userId = user.id;
+        req.session.save(() => {
+          res.json({ logMsg: 'Пользователь вернулся! 😻😻😻' });
+        });
+      } else {
+        res.json({ logErr: 'Введен не верный пароль 🙀' });
+      }
+    }
+  } catch (error) {
+    res.status(500).redirect('/404');
+  }
+});
+
+userRouter.get('/logout', (req, res) => {
+  req.session.destroy(() => {
+    res.clearCookie('cookieName');
+    res.redirect('/');
+  });
 });
 
 userRouter.get('/:id', async (req, res) => {
