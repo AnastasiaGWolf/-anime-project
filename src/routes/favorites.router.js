@@ -6,8 +6,15 @@ favoritesRouter.post('/:animeId', async (req, res) => {
   const { animeId } = req.params;
 
   try {
-    const newFavor = await Favorites.create({ user_id: userId, anime_id: animeId });
-    res.json({ msgDone: 'Добавлено в избранное' });
+    const favoriteCreated = await Favorites.findOne({
+      where: { user_id: userId, anime_id: animeId },
+    });
+    if (favoriteCreated) {
+      res.json({ msgDone: 'Аниме уже давно находится в твоем избранном' });
+    } else {
+      await Favorites.create({ user_id: userId, anime_id: animeId });
+      res.json({ msgDone: 'Добавлено в избранное' });
+    }
   } catch (error) {
     console.error('Error adding to favorites:', error);
     res.status(500);
