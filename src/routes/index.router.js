@@ -4,8 +4,9 @@ const renderTemplate = require('../utils/renderTemplate');
 const Account = require('../views/Account');
 const ErrorPage = require('../views/ErrorPage');
 const Home = require('../views/Home');
-const Registration = require('../views/Registration');
 const Login = require('../views/Login');
+const Posts = require('../views/Posts');
+const Registration = require('../views/Registration');
 const {
   User, Favorites, Post, Anime,
 } = require('../../db/models');
@@ -47,6 +48,22 @@ indexRouter.get('/account', async (req, res) => {
     }, res);
   } catch (error) {
     res.status(500);
+  }
+});
+
+indexRouter.get('/posts', async (req, res) => {
+  const { login, userId } = req.session;
+  try {
+    const allPosts = await Post.findAll({
+      include: [{
+        model: User,
+        attributes: ['name'],
+      }],
+    });
+    console.log(allPosts);
+    renderTemplate(Posts, { login, userId, posts: allPosts }, res);
+  } catch (error) {
+    res.status(500).redirect('/404');
   }
 });
 

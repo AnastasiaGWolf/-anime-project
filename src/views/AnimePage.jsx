@@ -18,10 +18,13 @@ function AnimePage({ login, anime }) {
           <p>Тип: type</p>
         </div>
       </div>
+
       <div className="buttons">
-        <button type="button">Добавить в избранное</button>
-        <button type="button">Посмотреть статьи про аниме</button>
+        <button id="addFavor" type="button">Добавить в избранное</button>
+        <button id="" type="button">Посмотреть статьи про аниме</button>
+        <button type="button">Написать интересную статью</button>
       </div>
+
       <div className="chat">
         <form>
           <input name="body" type="text" />
