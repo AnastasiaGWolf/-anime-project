@@ -7,14 +7,14 @@ function Account({
   return (
     <Layout login={login}>
       <div className="user-info">
-        <img className="userPhoto" src={user.foto || '/storage/userFoto/profile_foto.jpg'} alt="User photography" />
+        <img className="userPhoto" src={user.avatar || '/storage/userFoto/profile_foto.jpg'} alt="User photography" />
         <div className="user-card">
           <p>Имя пользователя:</p>
           <p>{user.name}</p>
           <p>Почта пользователя:</p>
           <p>{user.email}</p>
-          <button id="btnUpUser" type="button">Редактировать профиль</button>
-          <button id="btnSave" type="button" style={{ display: 'none' }}>Редактировать профиль</button>
+          <button id="btnUpUser" data-userid={user.id} type="button">Редактировать профиль</button>
+          {/* <button id="btnSave" type="submit" style={{ display: 'none' }}>Сохранить изменения</button> */}
         </div>
       </div>
 
@@ -32,7 +32,7 @@ function Account({
 
       <div className="postsContainer">
         {posts?.map((post) => (
-          <div className="post">
+          <div key={post.id} className="post">
             <h4>{post.title}</h4>
             <p>{post.body}</p>
             <button name="btnUpdate" type="button" id={post.id}>Редактировать</button>
@@ -40,6 +40,7 @@ function Account({
           </div>
         ))}
       </div>
+      <script defer src="/js/user.js" />
     </Layout>
   );
 }

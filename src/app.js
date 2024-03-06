@@ -35,7 +35,7 @@ app.use(express.static(path.join(process.cwd(), 'public')));
 app.use('/', apiRouter);
 
 app.get('/*', (req, res) => {
-  res.redirect('/');
+  res.redirect('/404');
 });
 
 app.listen(PORT, function () {

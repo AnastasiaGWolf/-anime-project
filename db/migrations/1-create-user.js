@@ -22,7 +22,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      foto: {
+      avatar: {
         type: Sequelize.STRING,
       },
       role: {

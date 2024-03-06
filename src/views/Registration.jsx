@@ -7,13 +7,13 @@ function Registration() {
       <div className="regMsg" />
 
       <form name="registration">
-        <label>User name</label>
+        <label>Имя пользователя:</label>
         <input type="text" name="name" />
 
-        <label>Email</label>
+        <label>Почта:</label>
         <input type="email" name="email" />
 
-        <label>Password</label>
+        <label>Пароль:</label>
         <input type="password" name="password" />
 
         <button type="submit">Зарегистрироваться</button>
