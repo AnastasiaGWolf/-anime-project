@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+
+* {
+  font-family: "Pangolin";
+  font-style: normal;
+  color: black !important;
+}
+
 body {
   /* background-color: rebeccapurple !important; */
 }
@@ -14,9 +23,14 @@ body {
 
 .cardsContainer {
   display: grid;
-  grid-template-rows: 250px;
+  grid-template-columns: repeat(5, fr);
+  gap: 3% 3%;
 	border: 2px solid #696989;
   row-gap: 10px;
 	padding: 10px;
 	width: 400px;
+}
+
+.error {
+
 }

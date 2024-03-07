@@ -10,7 +10,7 @@ postRouter.get('/:id', async (req, res) => {
 
   try {
     const article = await Post.findByPk(id);
-    renderTemplate(PostPage, { login, article }, res);
+    renderTemplate(PostPage, { login, article, scriptName: '/js/postUpdate.js' }, res);
   } catch (error) {
     console.error(`Error get post for update: ${error}`);
     res.status(500);
@@ -37,14 +37,36 @@ postRouter.get('/anime/:id', async (req, res) => {
 
 postRouter.post('/new', async (req, res) => {
   const { userId } = req.session;
-  const { title, body } = req.body;
+  const { title, body, anime } = req.body;
   try {
-    const newPost = await Post.create({ author: userId, title, body });
+    const newPost = await Post.create({
+      author: userId, title, body, anime: anime || null,
+    });
     console.log(newPost);
     res.json({ msgDone: 'Пост сохранен и опубликован' });
   } catch (error) {
     console.error(`Error in create post ===> ${error}`);
     res.status(500).json({ msgErr: 'Не удалось сохранить пост' });
+  }
+});
+
+postRouter.put('/edit/:id', async (req, res) => {
+  const { userId } = req.session;
+  const { title, body, anime } = req.body;
+  const { id } = req.params;
+  console.log(id);
+
+  try {
+    const postUpdate = await Post.update({
+      author: userId, title, body, anime: anime || null,
+    }, { where: { id } });
+
+    if (postUpdate) {
+      res.json({ msg: 'Статья обновлена' });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500);
   }
 });
 

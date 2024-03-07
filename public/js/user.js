@@ -16,7 +16,7 @@ btnUpUser.addEventListener('click', async (e) => {
     <label>Почта:</label>
     <input type="email" name="email" value="${result.email}" />
 
-    <button id="btnSave" type="submit">Сохранить изменения</button>
+    <button class="btnMy" id="btnSave" type="submit">Сохранить изменения</button>
   </form>
   <script defer src="/js/userUpdate.js" />
   `;
@@ -41,7 +41,7 @@ btnUpUser.addEventListener('click', async (e) => {
       <p>${result.name}</p>
       <p>Почта пользователя:</p>
       <p>${result.email}</p>
-      <button id="btnUpUser" data-userid=${result.id} type="button">Редактировать профиль</button>
+      <button class="btnMy" id="btnUpUser" data-userid=${result.id} type="button">Редактировать профиль</button>
     `;
   });
 });

@@ -1,7 +1,7 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function AnimePage({ login, anime }) {
+function AnimePage({ login, anime, myAn }) {
   return (
     <Layout login={login}>
       <div className="anime-info">
@@ -31,9 +31,9 @@ function AnimePage({ login, anime }) {
       </div>
 
       <div className="buttons">
-        <button className="btn btn-dark" id="addFavor" type="button" data-animeid={anime.id}>Добавить в избранное</button>
-        <button className="btn btn-dark" id="allPosts" type="button" data-animeid={anime.id}>Посмотреть статьи про аниме</button>
-        <button className="btn btn-dark" id="createPost" type="button">Написать интересную статью</button>
+        <button className="btnMy" id="addFavor" type="button" data-animeid={myAn.id}>Добавить в избранное</button>
+        <button className="btnMy" id="allPosts" type="button" data-animeid={myAn.id}>Посмотреть статьи про аниме</button>
+        <button className="btnMy" id="createPost" type="button">Написать интересную статью</button>
       </div>
 
       {/* {' '}

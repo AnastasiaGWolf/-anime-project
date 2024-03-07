@@ -2,6 +2,7 @@ const indexRouter = require('express').Router();
 const { secureRoute } = require('../middlewares/common');
 const renderTemplate = require('../utils/renderTemplate');
 const Account = require('../views/Account');
+const AddAnime = require('../views/AddAnime');
 const ErrorPage = require('../views/ErrorPage');
 const Home = require('../views/Home');
 const Login = require('../views/Login');
@@ -70,6 +71,11 @@ indexRouter.get('/posts', async (req, res) => {
 indexRouter.get('/article', (req, res) => {
   const { login } = req.session;
   renderTemplate(PostPage, { login, article: '' }, res);
+});
+
+indexRouter.get('/newAnime', (req, res) => {
+  const { login } = req.session;
+  renderTemplate(AddAnime, { login }, res);
 });
 
 indexRouter.get('/404', (req, res) => {

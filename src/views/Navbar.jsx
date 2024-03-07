@@ -13,6 +13,9 @@ function Navbar({ login }) {
           </div>
           <div className="collapse navbar-collapse">
             <div className="navbar-nav">
+              <a className="nav-link" href="/newAnime">
+                Добавить аниме
+              </a>
               <a className="nav-link" href="/posts">
                 Статьи
               </a>

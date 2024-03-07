@@ -21,7 +21,6 @@ module.exports = function Layout({ login, children }) {
         <Navbar login={login} />
         {children}
       </body>
-      {/* <script defer src="/js/home.js" /> */}
     </html>
   );
 };

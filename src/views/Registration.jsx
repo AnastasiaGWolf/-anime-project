@@ -16,7 +16,7 @@ function Registration() {
         <label>Пароль:</label>
         <input required type="password" name="password" />
 
-        <button className="btn btn-dark" type="submit">Зарегистрироваться</button>
+        <button className="btnMy" type="submit">Зарегистрироваться</button>
       </form>
 
       <script defer src="/js/registration.js" />

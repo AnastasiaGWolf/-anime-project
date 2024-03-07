@@ -13,7 +13,7 @@ function Login() {
         <label>Password</label>
         <input required type="password" name="password" />
 
-        <button className="btn btn-dark" type="submit">Войти</button>
+        <button className="btnMy" type="submit">Войти</button>
       </form>
 
       <script defer src="/js/login.js" />

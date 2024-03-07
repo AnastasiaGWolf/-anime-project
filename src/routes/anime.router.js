@@ -11,7 +11,18 @@ animeRouter.get('/:id', async (req, res) => {
     const response = await fetch(`https://api.jikan.moe/v4/anime/${myAn.external_key}`);
     const anime = await response.json();
     console.log(anime);
-    renderTemplate(AnimePage, { login, anime }, res);
+    renderTemplate(AnimePage, { login, anime, myAn }, res);
+  } catch (error) {
+    console.error(error);
+    res.status(500);
+  }
+});
+
+animeRouter.post('/new', async (req, res) => {
+  const { external_key, title, picture } = req.body;
+  try {
+    await Anime.create({ external_key, title, picture });
+    res.json({ msg: 'Anime добавлено' });
   } catch (error) {
     console.error(error);
     res.status(500);

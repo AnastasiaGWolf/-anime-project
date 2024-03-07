@@ -4,7 +4,7 @@ const Layout = require('./Layout');
 function Error({ login }) {
   return (
     <Layout login={login}>
-      <div>
+      <div className="error">
         <h2>Ой... запрашиваема страница не найдена</h2>
       </div>
     </Layout>
