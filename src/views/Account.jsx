@@ -14,7 +14,6 @@ function Account({
           <p>Почта пользователя:</p>
           <p>{user.email}</p>
           <button id="btnUpUser" data-userid={user.id} type="button">Редактировать профиль</button>
-          {/* <button id="btnSave" type="submit" style={{ display: 'none' }}>Сохранить изменения</button> */}
         </div>
       </div>
 
@@ -27,22 +26,24 @@ function Account({
                 <h4>{card.Anime.title}</h4>
               </div>
             </a>
-            <button className="btnDltCard" type="button">Удалить из избранного</button>
+            <button data-cardid={card.id} className="btnDltCard" type="button">Удалить из избранного</button>
           </div>
         ))}
       </div>
 
       <div className="postsContainer">
+        <button id="btnNewPost" type="button">Написать интересную статью</button>
         {posts?.map((post) => (
           <div key={post.id} className="post">
             <h4>{post.title}</h4>
             <p>{post.body}</p>
-            <button name="btnUpdate" type="button" id={post.id}>Редактировать</button>
-            <button name="btnDelete" type="button" id={post.id}>Удалить</button>
+            <button data-postid={post.id} className="btnUpPost" type="button" id={post.id}>Редактировать</button>
+            <button data-postid={post.id} className="btnDeletePost" type="button" id={post.id}>Удалить</button>
           </div>
         ))}
       </div>
       <script defer src="/js/user.js" />
+      <script defer src="/js/posts.js" />
     </Layout>
   );
 }

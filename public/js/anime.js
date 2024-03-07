@@ -1,12 +1,7 @@
-console.log('connection check');
 const addFavor = document.querySelector('#addFavor');
 const allPosts = document.querySelector('#allPosts');
 const createPost = document.querySelector('#createPost');
 const buttons = document.querySelector('.buttons');
-
-console.log(addFavor);
-console.log(allPosts);
-console.log(createPost);
 
 addFavor.addEventListener('click', async (e) => {
   e.preventDefault();
@@ -32,9 +27,9 @@ allPosts.addEventListener('click', async (e) => {
   const id = allPosts.dataset.animeid;
 
   try {
-    const response = await fetch(`/posts/${id}`);
+    const response = await fetch(`/posts/anime/${id}`);
     if (response.ok) {
-      window.location.href = `/posts/${id}`;
+      window.location.href = `/posts/anime/${id}`;
     }
   } catch (error) {
     console.error('Error fetching posts data:', error);

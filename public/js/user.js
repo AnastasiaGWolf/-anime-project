@@ -1,5 +1,6 @@
 const btnUpUser = document.querySelector('#btnUpUser');
 const userCard = document.querySelector('.user-card');
+const cardsContainer = document.querySelector('.cardsContainer');
 
 btnUpUser.addEventListener('click', async (e) => {
   e.preventDefault();
@@ -43,4 +44,24 @@ btnUpUser.addEventListener('click', async (e) => {
       <button id="btnUpUser" data-userid=${result.id} type="button">Редактировать профиль</button>
     `;
   });
+});
+
+cardsContainer.addEventListener('click', async (event) => {
+  event.preventDefault();
+  if (event.target.classList.contains('btnDltCard')) {
+    const { cardid } = event.target.dataset;
+    try {
+      const response = await fetch(`/favorites/${cardid}`, {
+        method: 'DELETE',
+      });
+      const result = await response.json();
+
+      if (result.msgDone) {
+        const deletedCard = event.target.parentNode;
+        deletedCard.remove();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 });
