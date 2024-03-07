@@ -19,8 +19,8 @@ function Account({
 
       <div className="cardsContainer">
         {favorites?.map((card) => (
-          <div key={card.id} className="card">
-            <a href={`/anime/${card.anime_id}`}>
+          <div key={card.id} className="anime">
+            <a data-anime={card.anime_id} className="nav-link" href={`/anime/${card.anime_id}`}>
               <img src={card.Anime.picture} className="picture" alt="..." />
               <div className="body">
                 <h4>{card.Anime.title}</h4>

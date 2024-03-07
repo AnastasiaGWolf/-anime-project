@@ -64,4 +64,9 @@ cardsContainer.addEventListener('click', async (event) => {
       console.log(error);
     }
   }
+
+  if (event.target.classList.contains('nav-link')) {
+    const { anime } = event.target.dataset;
+    window.location.href = `/anime/${anime}`;
+  }
 });

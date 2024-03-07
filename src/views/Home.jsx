@@ -8,7 +8,7 @@ function Home({ login, cards }) {
         <>
           <div className="cardsContainer">
             {cards?.map((card) => (
-              <div key={card.id} data-exkey={card.external_key} data-cardid={card.id} className="card">
+              <div key={card.id} data-exkey={card.external_key} data-cardid={card.id} className="anime">
                 <a className="nav-link" href={`/anime/${card.id}`}>
                   <img src={card.picture} className="picture" alt="..." />
                   <div className="body">
@@ -23,7 +23,7 @@ function Home({ login, cards }) {
       ) : (
         <div className="cardsContainer">
           {cards?.map((card) => (
-            <div key={card.id} className="card">
+            <div key={card.id} className="anime">
               <img src={card.picture} className="picture" alt="..." />
               <div className="body">
                 <h4>{card.title}</h4>
