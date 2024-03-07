@@ -19,10 +19,14 @@ function Account({
 
       <div className="cardsContainer">
         {favorites?.map((card) => (
-          <div key={card.id} className="anime">
+          <div>
             <a data-anime={card.anime_id} className="nav-link" href={`/anime/${card.anime_id}`}>
-              <img src={card.Anime.picture} className="picture" alt="..." />
-              <div className="body">
+              <div
+                key={card.id}
+                className="anime"
+                style={{ 'background-image': `url(${card.Anime.picture})` }}
+              >
+                {/* <img src={card.Anime.picture} className="picture" alt="..." /> */}
                 <h4>{card.Anime.title}</h4>
               </div>
             </a>

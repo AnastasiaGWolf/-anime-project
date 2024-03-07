@@ -5,29 +5,32 @@ function Home({ login, cards }) {
   return (
     <Layout login={login}>
       {login ? (
-        <>
-          <div className="cardsContainer">
-            {cards?.map((card) => (
-              <div key={card.id} data-exkey={card.external_key} data-cardid={card.id} className="anime">
-                <a className="nav-link" href={`/anime/${card.id}`}>
-                  <img src={card.picture} className="picture" alt="..." />
-                  <div className="body">
-                    <h4>{card.title}</h4>
-                  </div>
-                </a>
+        <div className="cardsContainer">
+          {cards?.map((card) => (
+            <a href={`/anime/${card.id}`}>
+              <div
+                key={card.id}
+                data-exkey={card.external_key}
+                data-cardid={card.id}
+                className="anime"
+                style={{ 'background-image': `url(${card.picture})` }}
+              >
+                <h4>{card.title}</h4>
               </div>
-            ))}
-          </div>
-          <script defer src="/js/home.js" />
-        </>
+            </a>
+          ))}
+        </div>
       ) : (
         <div className="cardsContainer">
           {cards?.map((card) => (
-            <div key={card.id} className="anime">
-              <img src={card.picture} className="picture" alt="..." />
-              <div className="body">
-                <h4>{card.title}</h4>
-              </div>
+            <div
+              key={card.id}
+              data-exkey={card.external_key}
+              data-cardid={card.id}
+              className="anime"
+              style={{ 'background-image': `url(${card.picture})` }}
+            >
+              <h4>{card.title}</h4>
             </div>
           ))}
         </div>
