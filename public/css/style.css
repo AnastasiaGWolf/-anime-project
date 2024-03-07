@@ -1,3 +1,7 @@
+body {
+  /* background-color: rebeccapurple !important; */
+}
+
 .picture {
   width: 150px;
 }
@@ -6,4 +10,13 @@
   border-radius: 50%;
   width: 150px;
   height: 150px;
+}
+
+.cardsContainer {
+  display: grid;
+  grid-template-rows: 250px;
+	border: 2px solid #696989;
+  row-gap: 10px;
+	padding: 10px;
+	width: 400px;
 }

@@ -26,9 +26,9 @@ const sessionConfig = {
 };
 
 const corsConfig = {
-  origin: [],
+  origin: ['https://api.jikan.moe/'],
   credentials: true,
-}
+};
 
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: true }));

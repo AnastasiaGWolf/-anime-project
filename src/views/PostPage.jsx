@@ -8,7 +8,7 @@ function PostPage({ login, article }) {
         <p id="msg"> </p>
         <input type="text" name="title" value={article.title || ''} placeholder="Заголовок статьи" />
         <textarea rows="10" cols="20" name="body" value={article.body || ''} placeholder="Захватывающий текст" />
-        <button className="btnSave" type="submit">Опубликовать</button>
+        <button className="btnSave btn btn-dark" type="submit">Опубликовать</button>
       </form>
       <script defer src="/js/article.js" />
     </Layout>

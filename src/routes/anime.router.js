@@ -7,9 +7,13 @@ animeRouter.get('/:id', async (req, res) => {
   const { login } = req.session;
   const { id } = req.params;
   try {
-    const animeInfo = await Anime.findByPk(id);
-    renderTemplate(AnimePage, { login, anime: animeInfo }, res);
+    const myAn = await Anime.findByPk(id);
+    const response = await fetch(`https://api.jikan.moe/v4/anime/${myAn.external_key}`);
+    const anime = await response.json();
+    console.log(anime);
+    renderTemplate(AnimePage, { login, anime }, res);
   } catch (error) {
+    console.error(error);
     res.status(500);
   }
 });

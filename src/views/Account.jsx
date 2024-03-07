@@ -13,7 +13,7 @@ function Account({
           <p>{user.name}</p>
           <p>Почта пользователя:</p>
           <p>{user.email}</p>
-          <button id="btnUpUser" data-userid={user.id} type="button">Редактировать профиль</button>
+          <button className="btn btn-dark" id="btnUpUser" data-userid={user.id} type="button">Редактировать профиль</button>
         </div>
       </div>
 
@@ -26,19 +26,19 @@ function Account({
                 <h4>{card.Anime.title}</h4>
               </div>
             </a>
-            <button data-cardid={card.id} className="btnDltCard" type="button">Удалить из избранного</button>
+            <button data-cardid={card.id} className="btnDltCard btn btn-dark" type="button">Удалить из избранного</button>
           </div>
         ))}
       </div>
 
       <div className="postsContainer">
-        <button id="btnNewPost" type="button">Написать интересную статью</button>
+        <button className="btn btn-dark" id="btnNewPost" type="button">Написать интересную статью</button>
         {posts?.map((post) => (
           <div key={post.id} className="post">
             <h4>{post.title}</h4>
             <p>{post.body}</p>
-            <button data-postid={post.id} className="btnUpPost" type="button" id={post.id}>Редактировать</button>
-            <button data-postid={post.id} className="btnDeletePost" type="button" id={post.id}>Удалить</button>
+            <button data-postid={post.id} className="btnUpPost btn btn-dark" type="button" id={post.id}>Редактировать</button>
+            <button data-postid={post.id} className="btnDeletePost btn btn-dark" type="button" id={post.id}>Удалить</button>
           </div>
         ))}
       </div>

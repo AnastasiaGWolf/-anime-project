@@ -5,7 +5,7 @@ function Posts({ login, userId, posts }) {
   return (
     <Layout login={login}>
       <div className="postsContainer">
-        <button id="btnNewPost" type="button">Написать интересную статью</button>
+        <button className="btn btn-dark" id="btnNewPost" type="button">Написать интересную статью</button>
         {posts?.map((post) => (
           <div key={post.id} className="post">
             <h2>{post.title}</h2>
@@ -18,8 +18,8 @@ function Posts({ login, userId, posts }) {
             <p>{post.body}</p>
             {userId === post.author && (
               <>
-                <button data-postid={post.id} className="btnUpPost" type="button">Редактировать</button>
-                <button data-postid={post.id} className="btnDeletePost" type="button">Удалить</button>
+                <button data-postid={post.id} className="btnUpPost btn btn-dark" type="button">Редактировать</button>
+                <button data-postid={post.id} className="btnDeletePost btn btn-dark" type="button">Удалить</button>
               </>
             )}
           </div>

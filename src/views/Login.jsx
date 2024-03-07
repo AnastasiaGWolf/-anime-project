@@ -8,12 +8,12 @@ function Login() {
 
       <form name="login">
         <label>User name</label>
-        <input type="text" name="name" />
+        <input required type="text" name="name" />
 
         <label>Password</label>
-        <input type="password" name="password" />
+        <input required type="password" name="password" />
 
-        <button type="submit">Войти</button>
+        <button className="btn btn-dark" type="submit">Войти</button>
       </form>
 
       <script defer src="/js/login.js" />

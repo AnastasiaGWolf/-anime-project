@@ -8,15 +8,15 @@ function Registration() {
 
       <form name="registration">
         <label>Имя пользователя:</label>
-        <input type="text" name="name" />
+        <input required type="text" name="name" />
 
         <label>Почта:</label>
-        <input type="email" name="email" />
+        <input required type="email" name="email" />
 
         <label>Пароль:</label>
-        <input type="password" name="password" />
+        <input required type="password" name="password" />
 
-        <button type="submit">Зарегистрироваться</button>
+        <button className="btn btn-dark" type="submit">Зарегистрироваться</button>
       </form>
 
       <script defer src="/js/registration.js" />
