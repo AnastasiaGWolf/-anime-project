@@ -34,8 +34,6 @@ btnUpUser.addEventListener('click', async (e) => {
     });
     result = await response.json();
 
-    console.log(result);
-
     userCard.innerHTML = `
       <p>Имя пользователя:</p>
       <p><b>${result.name}</b></p>
@@ -61,7 +59,7 @@ cardsContainer.addEventListener('click', async (event) => {
         deletedCard.remove();
       }
     } catch (error) {
-      console.log(error);
+      window.location.href = '/404';
     }
   } else if (event.target.classList.contains('anime')) {
     const anime = event.target.dataset.animeid;

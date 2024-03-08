@@ -21,6 +21,6 @@ animeCreate.addEventListener('submit', async (e) => {
       }, 400);
     }
   } catch (error) {
-    console.log(`Ошибка при попытке создать Аниме: ${error}`);
+    msg.innerText = 'Ошибка при попытке создать Аниме:';
   }
 });

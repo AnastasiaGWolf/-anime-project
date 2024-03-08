@@ -14,7 +14,6 @@ postCreate.addEventListener('click', async (e) => {
         body: JSON.stringify(inputs),
       });
       const result = await response.json();
-      console.log(result);
       if (result.msg) {
         msg.innerText = result.msg;
         setTimeout(() => {
@@ -22,7 +21,7 @@ postCreate.addEventListener('click', async (e) => {
         }, 1000);
       }
     } catch (error) {
-      console.log(error);
+      window.location.href = '/404';
     }
   }
 });

@@ -25,6 +25,6 @@ registration.addEventListener('submit', async (e) => {
       message.innerHTML = `${result.msgErr}`;
     }
   } catch (error) {
-    console.log(`Ошибка при регистрации: ${error}`);
+    message.innerHTML = 'Ошибка при регистрации';
   }
 });
