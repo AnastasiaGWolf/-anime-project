@@ -7,7 +7,7 @@ login.addEventListener('submit', async (e) => {
   const inputs = Object.fromEntries(data);
 
   try {
-    const response = await fetch('/login', {
+    const response = await fetch('/users/login', {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify(inputs),
@@ -23,9 +23,9 @@ login.addEventListener('submit', async (e) => {
       loginMsg.innerHTML = `${result.logMsg}`;
       setTimeout(() => {
         window.location.href = '/';
-      }, 400);
+      }, 1000);
     }
   } catch (error) {
-    console.log(`Ошибка при попытке залогиниться: ${error}`);
+    loginMsg.innerHTML('Ошибка при попытке залогиниться');
   }
 });

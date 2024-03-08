@@ -4,16 +4,16 @@ const Layout = require('./Layout');
 function Login() {
   return (
     <Layout>
-      <div className="logMsg" />
 
-      <form name="login">
+      <form name="login" className="login">
+        <div className="logMsg" />
         <label>User name</label>
-        <input type="text" name="name" />
+        <input required type="text" name="name" />
 
         <label>Password</label>
-        <input type="password" name="password" />
+        <input required type="password" name="password" />
 
-        <button type="submit">Войти</button>
+        <button className="btnMy" type="submit">Войти</button>
       </form>
 
       <script defer src="/js/login.js" />

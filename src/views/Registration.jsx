@@ -6,17 +6,17 @@ function Registration() {
     <Layout>
       <div className="regMsg" />
 
-      <form name="registration">
-        <label>User name</label>
-        <input type="text" name="name" />
+      <form name="registration" className="registration">
+        <label>Имя пользователя:</label>
+        <input required type="text" name="name" />
 
-        <label>Email</label>
-        <input type="email" name="email" />
+        <label>Почта:</label>
+        <input required type="email" name="email" />
 
-        <label>Password</label>
-        <input type="password" name="password" />
+        <label>Пароль:</label>
+        <input required type="password" name="password" />
 
-        <button type="submit">Зарегистрироваться</button>
+        <button className="btnMy" type="submit">Зарегистрироваться</button>
       </form>
 
       <script defer src="/js/registration.js" />

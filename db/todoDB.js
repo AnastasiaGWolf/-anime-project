@@ -9,3 +9,6 @@
 //! Seeds
 
 // * npx sequelize-cli seed:generate --name AnimesSeed
+// * npx sequelize-cli seed:generate --name PostSeed
+// * npx sequelize-cli seed:generate --name DiscussionSeed
+// * npx sequelize-cli seed:generate --name FavoritesSeed

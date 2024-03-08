@@ -13,10 +13,16 @@ function Navbar({ login }) {
           </div>
           <div className="collapse navbar-collapse">
             <div className="navbar-nav">
-              <a className="nav-link" href="/lk">
+              <a className="nav-link" href="/newAnime">
+                Добавить аниме
+              </a>
+              <a className="nav-link" href="/posts">
+                Статьи
+              </a>
+              <a className="nav-link" href="/account">
                 Личный кабинет
               </a>
-              <a className="nav-link" href="/logout">
+              <a className="nav-link" href="/users/logout">
                 Выйти
               </a>
             </div>
@@ -30,7 +36,7 @@ function Navbar({ login }) {
             </a>
           </div>
           <div className="collapse navbar-collapse">
-            <div className="navbar-nav">
+            <div className="navbar-nav" style={{ 'margin-right': '70px' }}>
               <a className="nav-link" href="/login">
                 Войти
               </a>
