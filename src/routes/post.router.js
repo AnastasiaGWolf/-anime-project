@@ -3,8 +3,9 @@ const renderTemplate = require('../utils/renderTemplate');
 const Posts = require('../views/Posts');
 const PostPage = require('../views/PostPage');
 const { User, Post } = require('../../db/models');
+const { checkUser } = require('../middlewares/common');
 
-postRouter.get('/:id', async (req, res) => {
+postRouter.get('/:id', checkUser, async (req, res) => {
   const { login } = req.session;
   const { id } = req.params;
 
@@ -17,7 +18,7 @@ postRouter.get('/:id', async (req, res) => {
   }
 });
 
-postRouter.get('/anime/:id', async (req, res) => {
+postRouter.get('/anime/:id', checkUser, async (req, res) => {
   const { id } = req.params;
   const { login, userId } = req.session;
   try {

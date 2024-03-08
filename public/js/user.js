@@ -38,7 +38,7 @@ btnUpUser.addEventListener('click', async (e) => {
 
     userCard.innerHTML = `
       <p>Имя пользователя:</p>
-      <p>${result.name}</p>
+      <p><b>${result.name}</b></p>
       <p>Почта пользователя:</p>
       <p>${result.email}</p>
       <button class="btnMy" id="btnUpUser" data-userid=${result.id} type="button">Редактировать профиль</button>
@@ -63,10 +63,8 @@ cardsContainer.addEventListener('click', async (event) => {
     } catch (error) {
       console.log(error);
     }
-  }
-
-  if (event.target.classList.contains('nav-link')) {
-    const { anime } = event.target.dataset;
+  } else if (event.target.classList.contains('anime')) {
+    const anime = event.target.dataset.animeid;
     window.location.href = `/anime/${anime}`;
   }
 });

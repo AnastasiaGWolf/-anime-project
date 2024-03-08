@@ -6,7 +6,7 @@ function Registration() {
     <Layout>
       <div className="regMsg" />
 
-      <form name="registration">
+      <form name="registration" className="registration">
         <label>Имя пользователя:</label>
         <input required type="text" name="name" />
 

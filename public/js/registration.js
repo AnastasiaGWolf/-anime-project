@@ -18,7 +18,7 @@ registration.addEventListener('submit', async (e) => {
       message.innerHTML = `${result.msgDone}`;
       setTimeout(() => {
         window.location.href = '/';
-      }, 400);
+      }, 800);
     }
 
     if (result.msgErr) {

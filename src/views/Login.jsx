@@ -4,9 +4,9 @@ const Layout = require('./Layout');
 function Login() {
   return (
     <Layout>
-      <div className="logMsg" />
 
-      <form name="login">
+      <form name="login" className="login">
+        <div className="logMsg" />
         <label>User name</label>
         <input required type="text" name="name" />
 

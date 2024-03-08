@@ -10,7 +10,7 @@ function Account({
         <img className="userPhoto" src={user.avatar || '/storage/userFoto/profile_foto.jpg'} alt="User photography" />
         <div className="user-card">
           <p>Имя пользователя:</p>
-          <p>{user.name}</p>
+          <p><b>{user.name}</b></p>
           <p>Почта пользователя:</p>
           <p>{user.email}</p>
           <button className="btnMy" id="btnUpUser" data-userid={user.id} type="button">Редактировать профиль</button>
@@ -19,14 +19,14 @@ function Account({
 
       <div className="cardsContainer">
         {favorites?.map((card) => (
-          <div>
-            <a data-anime={card.anime_id} className="nav-link" href={`/anime/${card.anime_id}`}>
+          <div className="favorites">
+            <a data-animeid={card.anime_id} className="nav-link" href={`/anime/${card.anime_id}`}>
               <div
                 key={card.id}
+                data-animeid={card.anime_id}
                 className="anime"
                 style={{ 'background-image': `url(${card.Anime.picture})` }}
               >
-                {/* <img src={card.Anime.picture} className="picture" alt="..." /> */}
                 <h4>{card.Anime.title}</h4>
               </div>
             </a>

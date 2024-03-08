@@ -23,9 +23,9 @@ login.addEventListener('submit', async (e) => {
       loginMsg.innerHTML = `${result.logMsg}`;
       setTimeout(() => {
         window.location.href = '/';
-      }, 400);
+      }, 1000);
     }
   } catch (error) {
-    console.log(`Ошибка при попытке залогиниться: ${error}`);
+    loginMsg.innerHTML('Ошибка при попытке залогиниться');
   }
 });

@@ -11,8 +11,10 @@ function Posts({ login, userId, posts }) {
             <h2>{post.title}</h2>
             <span>
               Статья написана
+              {' '}
               {post.User.name}
               , дата создания
+              {' '}
               {post.createdAt.toString().slice(0, 21)}
             </span>
             <p>{post.body}</p>

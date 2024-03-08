@@ -1,10 +1,7 @@
 const userRouter = require('express').Router();
 const bcrypt = require('bcrypt');
 const { Op } = require('sequelize');
-const {
-  User, Favorites, Post, Anime,
-} = require('../../db/models');
-const renderTemplate = require('../utils/renderTemplate');
+const { User } = require('../../db/models');
 
 userRouter.post('/registration', async (req, res) => {
   try {
@@ -88,7 +85,6 @@ userRouter.put('/update', async (req, res) => {
       req.session.login = user.name;
       req.session.userId = user.id;
       req.session.save(() => {
-        console.log('Сессия сохранена');
         res.json(user);
       });
     }

@@ -36,7 +36,7 @@ function Navbar({ login }) {
             </a>
           </div>
           <div className="collapse navbar-collapse">
-            <div className="navbar-nav">
+            <div className="navbar-nav" style={{ 'margin-right': '70px' }}>
               <a className="nav-link" href="/login">
                 Войти
               </a>

@@ -2,8 +2,9 @@ const animeRouter = require('express').Router();
 const AnimePage = require('../views/AnimePage');
 const { Anime } = require('../../db/models');
 const renderTemplate = require('../utils/renderTemplate');
+const { checkUser } = require('../middlewares/common');
 
-animeRouter.get('/:id', async (req, res) => {
+animeRouter.get('/:id', checkUser, async (req, res) => {
   const { login } = req.session;
   const { id } = req.params;
   try {
@@ -24,7 +25,7 @@ animeRouter.post('/new', async (req, res) => {
     res.json({ msg: 'Anime добавлено' });
   } catch (error) {
     console.error(error);
-    res.status(500);
+    res.json({ msg: 'Anime уже есть на сайте' });
   }
 });
 

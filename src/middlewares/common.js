@@ -6,4 +6,12 @@ function secureRoute(req, res, next) {
   }
 }
 
-module.exports = { secureRoute };
+function checkUser(req, res, next) {
+  if (req.session.login) {
+    next();
+  } else {
+    res.redirect('/login');
+  }
+}
+
+module.exports = { secureRoute, checkUser };

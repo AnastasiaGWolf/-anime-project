@@ -1,3 +1,3 @@
 # -anime-project
 
-Использована API https://jikan.moe/
+В проекте использован API https://jikan.moe/

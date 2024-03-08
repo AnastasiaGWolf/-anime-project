@@ -12,11 +12,13 @@ function AnimePage({ login, anime, myAn }) {
             {' '}
             {anime.data.title}
           </h2>
+          {anime.data.title_japanese && (
           <h3>
             Оригинальное название:
             {' '}
             {anime.data.title_japanese}
           </h3>
+          )}
           <p>
             Жанры:
             {' '}

@@ -1,5 +1,5 @@
 const indexRouter = require('express').Router();
-const { secureRoute } = require('../middlewares/common');
+const { secureRoute, checkUser } = require('../middlewares/common');
 const renderTemplate = require('../utils/renderTemplate');
 const Account = require('../views/Account');
 const AddAnime = require('../views/AddAnime');
@@ -31,7 +31,7 @@ indexRouter.get('/login', secureRoute, (req, res) => {
   renderTemplate(Login, {}, res);
 });
 
-indexRouter.get('/account', async (req, res) => {
+indexRouter.get('/account', checkUser, async (req, res) => {
   const { login, userId } = req.session;
   try {
     const user = await User.findByPk(userId);
@@ -53,7 +53,7 @@ indexRouter.get('/account', async (req, res) => {
   }
 });
 
-indexRouter.get('/posts', async (req, res) => {
+indexRouter.get('/posts', checkUser, async (req, res) => {
   const { login, userId } = req.session;
   try {
     const allPosts = await Post.findAll({
@@ -68,12 +68,12 @@ indexRouter.get('/posts', async (req, res) => {
   }
 });
 
-indexRouter.get('/article', (req, res) => {
+indexRouter.get('/article', checkUser, (req, res) => {
   const { login } = req.session;
   renderTemplate(PostPage, { login, article: '' }, res);
 });
 
-indexRouter.get('/newAnime', (req, res) => {
+indexRouter.get('/newAnime', checkUser, (req, res) => {
   const { login } = req.session;
   renderTemplate(AddAnime, { login }, res);
 });
