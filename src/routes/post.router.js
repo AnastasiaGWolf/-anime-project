@@ -28,6 +28,9 @@ postRouter.get('/anime/:id', checkUser, async (req, res) => {
         attributes: ['name'],
       }],
       where: { anime: id },
+      order: [
+        ['createdAt', 'DESC'],
+      ],
     });
     renderTemplate(Posts, { login, userId, posts: allPostsAnime }, res);
   } catch (error) {

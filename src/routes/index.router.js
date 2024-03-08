@@ -61,6 +61,9 @@ indexRouter.get('/posts', checkUser, async (req, res) => {
         model: User,
         attributes: ['name'],
       }],
+      order: [
+        ['createdAt', 'DESC'],
+      ],
     });
     renderTemplate(Posts, { login, userId, posts: allPosts }, res);
   } catch (error) {
